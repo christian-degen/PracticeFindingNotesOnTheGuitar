@@ -7,15 +7,9 @@ public class NoteOnString
     private readonly Random _Random = new();
 
     private readonly HashSet<Tuple<char, char>> _History = new();
-    private const int MaxHistory = 1000;
     
     public NoteAndString GetNext()
     {
-        if (_History.Count > MaxHistory)
-        {
-            _History.Clear();
-        }
-        
         NoteAndString next;
         do
         {
