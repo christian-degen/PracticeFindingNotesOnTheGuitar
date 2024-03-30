@@ -1,21 +1,19 @@
-﻿
+﻿using PracticeFindingNotesOnTheGuitar;
+
 bool WaitForKey()
 {
     Console.ReadKey(true);
     return true;
 }
 
-var notes = new[] { 'F', 'C', 'G', 'D', 'A', 'E', 'B' };
-var guitarStrings = new[] { 'E', 'B', 'G', 'D', 'A' };
-var random = new Random();
+Console.WriteLine("Press any key for next note or Ctrl + C to exit.");
 
-Console.WriteLine("Hit any key for next note or Ctrl + C to exit.");
+var noteOnString = new NoteOnString();
 
 do
 {
-    var noteIndex = random.Next(0, notes.Length);
-    var guitarStringIndex = random.Next(0, guitarStrings.Length);
-    Console.WriteLine($"Play {notes[noteIndex]} on {guitarStrings[guitarStringIndex]} string.");
+    var next = noteOnString.GetNext();
+    Console.WriteLine($"Play {next.Note} on {next.GuitarString} string.");
 } while (WaitForKey());
 
 
